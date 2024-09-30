@@ -1,39 +1,34 @@
 {
-	"Main_menu":[
-		{
-			"page":"programm",
-			"titre":{
-				"fr":"Programme",
-				"en":"Program",
-				"nl":"Programma"		
-				}
-		},
-		{
-			"page":"map",
-			"titre":{
-				"fr":"Carte",
-				"en":"Map",
-				"nl":"Kaart"
-			}
-		},
-		{
-			"page":"partners",
-			"titre":{
-				"fr":"Partenaires",
-				"en":"Partners",
-				"nl":"Partners"
-			}
-		}
-
-	],
-	"RS_menu":[
-		{
-			"page":"https://www.facebook.com/walkbrussels/",
-			"titre":"facebook"
-		},
-		{
-			"page":"https://www.instagram.com/walk.brussels/",
-			"titre":"instagram"
-		}
-	]
+  "Main_menu": [
+    {
+      "page": "services",
+      "titre": {
+        "fr": "Services"
+      }
+    },
+    {
+      "page": "wedding-pictures",
+      "titre": {
+        "fr": "Photos de mariages"
+      }
+    },
+    {
+      "page": "contact",
+      "titre": {
+        "fr": "Contacts"
+      }
+    },
+    {
+      "page": "advises",
+      "titre": {
+        "fr": "Avis"
+      }
+    }
+  ],
+  "RS_menu": [
+    {
+      "page": "https://www.instagram.com/walk.brussels/",
+      "titre": "instagram"
+    }
+  ]
 }

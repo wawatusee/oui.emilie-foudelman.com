@@ -81,18 +81,19 @@ Fichiers :
 
 Répertoire des fichiers php contenant toutes les classes qui traitent les vues exploitées dans le site.
 Exemples de views :
- - menu
+
+- menu
 
 ###### inc, répertoire
 
 Répertoire des fichiers récurrents d'une page à l'autre, le menu, l'entète le pied de site sont isolés et stoqués dans ce prépertoire pour pouvoir être inclu sans changement dans toutes les pages où ils sont nécessaires.
 Répertoires :
 
-- pages, répertoire contenant les fichiers php qui correspondent à des pages du menu principal.
+- pages, répertoire contenant les fichiers php qui correspondent à des pages du menu principal, pour l'instant ces pages doivent encore être créées à la main, dans le cadre d'un CMS se pourrait-être automatisé, je ne sais pas encore comment.
 
 Fichiers, les éléments récurents du site qui seront appelés dans différentes pages :
 
-- head.php, les entêtes de la page html
+- head.php, les entêtes de la page html, les balises OG de Facebook doivent y être incluses si l'option partage sur les réseaux sociaux est désirée.
 - header.php, divers éléments dont la navigation et le titre et le module de changement de langues.
 - nav.php, menu principal
 - footer.php, pied de site, avec menu annexe et autres compléments d'information et de navigation.
@@ -100,6 +101,10 @@ Fichiers, les éléments récurents du site qui seront appelés dans différente
 
 ### Composants
 
+#### Services
+
 #### Galerie images
 
+#### Contacts
 
+#### Avis
