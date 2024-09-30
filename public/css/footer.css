@@ -20,7 +20,7 @@ font-family: "myTitleFont";
 }
 
 .footerNav{
-background-color:var(--first-color);
+background-color: var(--main-dark-color);
 display: flex;
 flex-direction: row;
 justify-content: space-around;

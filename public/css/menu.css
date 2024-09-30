@@ -1,39 +1,10 @@
   /*MENUS*/
 /**********************/
-/*Liste déroulante Langues*/
-/* Style pour la liste déroulante */
 
-select#lang {
-  padding: 4px;
-  border: none;
-  font-size: 1em;
-  background-color:var(--first-color); /* Fond blanc */
-  color: #fff; /* Couleur du texte */
-
-}
-
-/* Style pour les options de la liste déroulante */
-select#lang option {
-  background-color: #fff; /* Fond blanc */
-  color: #333; /* Couleur du texte */
-}
-
-/* Style pour le bouton de soumission (peut être personnalisé selon vos besoins) */
-input[type="submit"] {
-  padding: 10px 20px;
-  background-color: #007BFF; /* Couleur de fond bleue */
-  color: #fff; /* Couleur du texte blanc */
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-/*Fin liste déroulante langues*/
   /*mainMenu*/
 /**********************/
 .responsiveMenu {
     overflow: hidden;
-    background-color: rgba(230, 86, 57, 0.5);
   }
   .responsiveMenu{
     font-family: "myTitleFont",Verdana, Geneva, Tahoma, sans-serif, sans-serif;
@@ -59,7 +30,7 @@ input[type="submit"] {
   }
   
   .responsiveMenu a.active {
-    background-color: var(--blue-color);
+    background-color: var(--secondary-blue-color);
     color: white;
   }
   

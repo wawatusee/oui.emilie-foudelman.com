@@ -1,16 +1,16 @@
   /*Header*/
   header{
-    background-color: var(--first-color);
+    background-color: var(--main-dark-color);
     color: var(--main-clear-color);
-    /*background-image: url("../img/deco/demi-affiche-slowways.png");*/
-    background-repeat: no-repeat; /* Pour empêcher la répétition */
-    background-position: center; 
-    background-size: contain;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height:auto;
+  }
+  .mainTitleBlock{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
   }
   /* Appliquer un style différent pour les écrans de petite taille */
 @media screen and (max-width: 768px) {
