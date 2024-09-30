@@ -1,0 +1,39 @@
+  /*Header*/
+  header{
+    background-color: var(--first-color);
+    color: var(--main-clear-color);
+    /*background-image: url("../img/deco/demi-affiche-slowways.png");*/
+    background-repeat: no-repeat; /* Pour empêcher la répétition */
+    background-position: center; 
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height:auto;
+  }
+  /* Appliquer un style différent pour les écrans de petite taille */
+@media screen and (max-width: 768px) {
+  header {
+    background-image: none; /* Supprime l'image de fond */
+  }
+}
+
+  header H1, header p{
+    text-align: center;
+  }
+  .logo{
+    margin:40px 40px 0px 40px;
+    height:40px;
+  }
+  .mainsubtitle{
+    font-family: "myTitleFont",Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+    margin: 0px 40px 20px 40px;
+  }
+
+  /*@media only screen and (max-width: 600px){
+    .logo{display:none;}
+  }*/
+
+  /*End header*/
+/**********************/
