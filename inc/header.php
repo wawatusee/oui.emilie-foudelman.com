@@ -5,7 +5,7 @@
         <div class="menulangues">
         <?php //Liste déroulante des langues
         echo '<form method="get">';
-        echo '<select name="lang" id="lang" onchange="this.form.submit()">';
+       // echo '<select name="lang" id="lang" onchange="this.form.submit()">';
         foreach ($langues_disponibles as $code_langue => $nom_langue) {
             echo '<option value="' . $code_langue . '"';
             if ($lang === $code_langue) {

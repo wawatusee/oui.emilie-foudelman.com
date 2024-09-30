@@ -2,7 +2,7 @@
  $menuMain_model=$menus->getMenu("Main_menu");
  require_once("../src/view/view_menus.php");
  $menusView=new ViewMenu($lang);
- $menuMain_view=$menusView->getViewMainMenu($menuMain_model);
+ $menuMain_view=$menusView->getViewMainMenu($menuMain_model,false);
  ?>
 <nav class="responsiveMenu" id="responsiveMenu">
         <?php
