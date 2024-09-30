@@ -7,6 +7,9 @@
     overflow: hidden;
   }
   .responsiveMenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-family: "myTitleFont",Verdana, Geneva, Tahoma, sans-serif, sans-serif;
     margin-right: 0px;
   }
@@ -24,8 +27,8 @@
   }
   
   .itemMenu:hover {
-    background-color:var(--main-clear-color);
-    color: var(--first-color);
+    font-size: large;
+    color: var(--secondary-blue-color);
     text-decoration: underline;
   }
   

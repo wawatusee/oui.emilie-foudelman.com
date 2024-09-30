@@ -3,25 +3,25 @@
     {
       "page": "services",
       "titre": {
-        "fr": "Services"
+        "fr": "services"
       }
     },
     {
       "page": "wedding-pictures",
       "titre": {
-        "fr": "Photos de mariages"
+        "fr": "photos de mariages"
       }
     },
     {
       "page": "contact",
       "titre": {
-        "fr": "Contacts"
+        "fr": "contacts"
       }
     }
   ],
   "RS_menu": [
     {
-      "page": "https://www.instagram.com/walk.brussels/",
+      "page": "https://www.instagram.com/emifoudelmanphoto/",
       "titre": "instagram"
     }
   ]

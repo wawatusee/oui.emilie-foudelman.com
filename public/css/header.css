@@ -10,13 +10,18 @@
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
-  /* Appliquer un style différent pour les écrans de petite taille */
-@media screen and (max-width: 768px) {
-  header {
-    background-image: none; /* Supprime l'image de fond */
-  }
+.btn-main{
+  color: var(--main-clear-color);
+  font-size: 1.8em;
+  margin:40px 40px 0px 40px;
+  height:40px;
+  text-decoration: none;
+}
+.btn-main:hover{
+  color: var(--secondary-red);
 }
 
   header H1, header p{
@@ -24,16 +29,12 @@
   }
   .logo{
     margin:40px 40px 0px 40px;
-    height:40px;
   }
   .mainsubtitle{
     font-family: "myTitleFont",Verdana, Geneva, Tahoma, sans-serif, sans-serif;
     margin: 0px 40px 20px 40px;
   }
 
-  /*@media only screen and (max-width: 600px){
-    .logo{display:none;}
-  }*/
 
   /*End header*/
 /**********************/
