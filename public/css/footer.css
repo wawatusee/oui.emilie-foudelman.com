@@ -39,6 +39,9 @@ color: var(--main-clear-color);
 .navfooterbloc a:hover{
 text-decoration: underline;
 color: var(--main-dark-color);
+background-color: var(--main-clear-color);
+padding-left: 1em;
+padding-right: 1em;
 }
 /*Block  rsMenu*/
 .nav-rs{
