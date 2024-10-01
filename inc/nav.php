@@ -2,7 +2,8 @@
  $menuMain_model=$menus->getMenu("Main_menu");
  require_once("../src/view/view_menus.php");
  $menusView=new ViewMenu($lang);
- $menuMain_view=$menusView->getViewMainMenu($menuMain_model,false);
+ //Le deuxième paramètre determine le comportement du site en singlepage ou pas
+ $menuMain_view=$menusView->getViewMainMenu($menuMain_model,$singlePage);
  ?>
 <nav class="responsiveMenu" id="responsiveMenu">
         <?php
