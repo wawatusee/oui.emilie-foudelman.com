@@ -34,8 +34,15 @@ margin-bottom: var(--standartspace);
 display: block;
 text-decoration: none;
 color: var(--main-clear-color);
-/**/
 }
+.btnwhatsapp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+}
+/**/
+
 .navfooterbloc a:hover{
 text-decoration: underline;
 color: var(--main-dark-color);
