@@ -7,7 +7,7 @@
  ?>
 <nav class="responsiveMenu" id="responsiveMenu">
         <?php
-        echo $menuMain_view;
+        echo "<div class='links'>".$menuMain_view."</div>";
         ?>
         <a href="javascript:void(0);" class="icon" onclick="responsiveMenu()">
             <img src="img/deco/menu-responsive-btn-blanc.svg" alt="bouton menu-toggle">

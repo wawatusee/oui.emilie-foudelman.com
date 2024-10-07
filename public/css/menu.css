@@ -73,3 +73,25 @@
   }
     /*End mainMENUS*/
 /**********************/
+/*Temp essai menu*/
+.main-page-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.main-page-links a {
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: var(--grey-clear-color);
+  color: white;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.main-page-links a:hover {
+  color: var(--secondary-blue-color);
+  background-color: var(--main-dark-color);
+}
+/*End temp essai menu*/
