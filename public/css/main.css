@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--main-clear-color);
+
 }
 .contacts{
   color: var(--main-dark-color);
@@ -19,8 +19,6 @@
 }
 .contacts li{
   padding: 10px;
-  background-color: lightblue;
-  border: 1px solid #ccc;
 }
 .contacts a{
   text-decoration: none;
