@@ -1,97 +1,74 @@
-  /*MENUS*/
+/*MENUS*/
 /**********************/
 
-  /*mainMenu*/
+/*mainMenu*/
 /**********************/
 .responsiveMenu {
-    overflow: hidden;
-  }
-  .responsiveMenu{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-family: "myTitleFont",Verdana, Geneva, Tahoma, sans-serif, sans-serif;
-    margin-right: 0px;
-  }
-  .responsiveMenu a {
-    float: left;
-    display: inline;
-    color: var(--main-clear-color);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  .itemMenu {
- margin-right: 35px;
-  }
-  
-  .itemMenu:hover {
-    background-color: var(--main-clear-color);
-    font-size: large;
-    font-weight: bold;
-    color: var(--main-dark-color);
-    text-decoration: underline;
-  }
-  
-  .responsiveMenu a.active {
-    background-color: var(--secondary-blue-color);
-    color: white;
-  }
-  
-  .responsiveMenu .icon {
-    display: none;
-  }
-  
-  @media screen and (max-width: 600px) {
-    .responsiveMenu a {display: none;}
-    .responsiveMenu a.icon {
-      float: left;
-      display: block;
-    }
-  }
-  
-  @media screen and (max-width: 600px) {
-    .responsiveMenu.responsive {position: relative;}
-    .responsiveMenu.responsive .icon {
-      position: absolute;
-      right: 0;
-      top:-10px;
-    }
-    .responsiveMenu.responsive a {
-      float: left;
-      display: block;
-      text-align: left;
-    }
-  }
-
-
-  /*Texte information*/
-  .information{
-    padding: var(--content-padding);
-    background-color: var(--main-clear-color);
-  }
-    /*End mainMENUS*/
-/**********************/
-/*Temp essai menu*/
-.main-page-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  overflow: hidden;
 }
-
-.main-page-links a {
+.responsiveMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "myTitleFont", Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+  margin-top: 5px;
+}
+.responsiveMenu a {
   padding: 10px 20px;
+  display: inline;
   text-decoration: none;
   background-color: var(--grey-clear-color);
-  color: white;
+  color: var(--main-clear-color);
   border-radius: 5px;
   font-size: 1.2rem;
   transition: background-color 0.3s;
+  
 }
-
-.main-page-links a:hover {
+.responsiveMenu a:hover {
   color: var(--secondary-blue-color);
   background-color: var(--main-dark-color);
+  font-weight: bold;
 }
-/*End temp essai menu*/
+
+.responsiveMenu a.active {
+  background-color: var(--secondary-blue-color);
+  color: var(--main-clear-color);
+}
+
+.responsiveMenu .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .responsiveMenu a {
+    display: none;
+  }
+  .responsiveMenu a.icon {
+    float: left;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .responsiveMenu.responsive {
+    position: relative;
+  }
+  .responsiveMenu.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: -10px;
+  }
+  .responsiveMenu.responsive a {
+    float: left;
+    display: block;
+    text-align: left;
+  }
+}
+
+/*Texte information*/
+.information {
+  padding: var(--content-padding);
+  background-color: var(--main-clear-color);
+}
+/*End mainMENUS*/
+/**********************/

@@ -1,40 +1,53 @@
-  /*Header*/
-  header{
-    background-color: var(--main-dark-color);
-    color: var(--main-clear-color);
-    justify-content: space-between;
-    align-items: center;
-    height:auto;
-  }
-  .mainTitleBlock{
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-.btn-main{
+/*Header*/
+header {
+  color: var(--main-clear-color);
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+.mainTitleBlock {
+  background-color: var(--main-dark-color);
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.btn-main {
   color: var(--main-clear-color);
   font-size: 1.8em;
-  margin:40px 40px 0px 40px;
-  height:40px;
+  margin: 40px 40px 0px 40px;
+  height: 40px;
   text-decoration: none;
 }
-.btn-main:hover{
+.btn-main:hover {
   color: var(--secondary-red);
 }
 
-  header H1, header p{
-    text-align: center;
-  }
-  .logo{
-    margin:40px 40px 0px 40px;
-  }
-  .mainsubtitle{
-    font-family: "myTitleFont",Verdana, Geneva, Tahoma, sans-serif, sans-serif;
-    margin: 0px 40px 20px 40px;
-  }
+header H1,
+header p {
+  text-align: center;
+}
+.logo {
+  margin: 40px 40px 0px 40px;
+}
+.mainsubtitle {
+  font-family: "myTitleFont", Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+  margin: 0px 40px 20px 40px;
+  /* font-size: 3rem;*/
+  margin-bottom: 20px;
+}
+.mainsubtitle a {
+  font-family: "myHomeFont", Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+  color: var(--main-clear-color);
+  font-size: 1.8em;
+  margin: 40px 40px 0px 40px;
+  height: 40px;
+  text-decoration: none;
+}
+.mainsubtitle a:hover {
+  color: var(--secondary-red);
+}
 
-
-  /*End header*/
+/*End header*/
 /**********************/
