@@ -27,7 +27,6 @@
 .responsiveMenu a:hover {
   color: var(--secondary-blue-color);
   background-color: var(--main-dark-color);
-  font-weight: bold;
 }
 
 .responsiveMenu a.active {
