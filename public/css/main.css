@@ -27,6 +27,6 @@ font-size: 1.6em;
 }
 .contacts a:hover {
   color: var(--secondary-blue-color);
-  background-color: var(--main-dark-color);
+  text-decoration-line: underline;
   font-weight: bold;
 }
