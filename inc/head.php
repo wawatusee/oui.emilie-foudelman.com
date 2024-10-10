@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="css/catalog.css" />
+	<script src="js/modernizr-custom.js"></script>
     <script src="js/menu.js"></script>
     <link rel="shortcut icon" type="image/png" href="favicon.ico">
     <title><?= $titleWebSite[0].$titleWebSite[1].$titleWebSite[2].'.be'?></title>

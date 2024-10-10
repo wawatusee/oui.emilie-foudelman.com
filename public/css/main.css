@@ -15,14 +15,13 @@
   margin: 0;
   display: flex; /* Active Flexbox sur le conteneur <ul> */
   flex-direction:column;
-  space-between; /* Distribue les éléments avec des espaces égaux */
 }
 .contacts li{
   padding: 10px;
 }
 .contacts a{
   text-decoration: none;
-  color: var(--main-dark-color);
+  color: var(--main-clear-color);
 font-size: 1.6em;
 }
 .contacts a:hover {
