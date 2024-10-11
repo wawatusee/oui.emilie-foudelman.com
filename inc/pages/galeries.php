@@ -1,3 +1,4 @@
+<h2 class="invisible-titre">Galeries</h2>
 <?php
 require_once('../src/model/gallery_model.php');
 require_once("../src/view/gallery_view.php");

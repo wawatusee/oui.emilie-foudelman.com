@@ -1,3 +1,4 @@
+<h2 class="invisible-titre">Contacts</h2>
 <div class="contacts-container">
     <ul class="contacts">
         <li> <a href="mailto:info@emilie-foudelman.com">info@emilie-foudelman.com</a>

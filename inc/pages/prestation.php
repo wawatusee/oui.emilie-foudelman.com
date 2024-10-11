@@ -1,3 +1,4 @@
+<h2 class="invisible-titre">Prestation</h2>
 <article>
   <p>
   On dit de mes photos qu’elles sont sensibles, justes et d’une grande créativité. Et de moi que j’aime mes sujets et que cet amour transparaît dans mes clichés.

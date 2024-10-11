@@ -1,6 +1,6 @@
 <footer>
     <section id="sitemap">
-        <h2>Links</h2>
+        <h2 class="invisible-titre">Links</h2>
         <div class="footerNav">
             <nav class="navfooterbloc">
                 <h3>Contacts</h3>

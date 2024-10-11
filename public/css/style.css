@@ -42,7 +42,7 @@ body {
   font-family: "myFirstFont";
 }
 h2 {
-  color: var(--first-color);
+  color: var(--main-clear-color);
   font-family: "myTitleFont";
   text-align: center;
 }
@@ -66,4 +66,8 @@ p {
 :root {
   --standartspace: 0.9em;
   --content-padding: 20px;
+}
+/*Special emilie, elle ne veut pas de titre*/
+.invisible-titre{
+  visibility: hidden;
 }
