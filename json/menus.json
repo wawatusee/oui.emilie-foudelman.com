@@ -1,15 +1,15 @@
 {
   "Main_menu": [
     {
-      "page": "services",
+      "page": "prestation",
       "titre": {
-        "fr": "services"
+        "fr": "prestation"
       }
     },
     {
-      "page": "wedding-pictures",
+      "page": "photos",
       "titre": {
-        "fr": "photos de mariages"
+        "fr": "photos"
       }
     },
     {
@@ -21,7 +21,7 @@
   ],
   "RS_menu": [
     {
-      "page": "https://www.instagram.com/emifoudelmanphoto/",
+      "page": "https://www.instagram.com/emiliefoudelmanmariages/",
       "titre": "instagram"
     }
   ]

@@ -1,4 +1,3 @@
-<h2>services</h2>
 <article>
   <p>
     Photographe professionnel de mariage, Diplômée avec plus de vingt ans d’expérience. <br>

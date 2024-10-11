@@ -38,7 +38,7 @@ header p {
   margin-bottom: 20px;
 }
 .mainsubtitle a {
-  font-family: "myHomeFont", Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+  font-family: "myTitleFont", Verdana, Geneva, Tahoma, sans-serif, sans-serif;
   color: var(--main-clear-color);
   font-size: 1.8em;
   margin: 40px 40px 0px 40px;

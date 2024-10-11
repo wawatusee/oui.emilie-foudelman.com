@@ -1,8 +1,7 @@
 <h2>photos de mariage</h2>
 
 <?php
-var_dump(__DIR__);
-require_once("../src/model/gallery_model.php");
+require_once('../src/model/gallery_model.php');
 require_once("../src/view/gallery_view.php");
 $cheminImages = $repImg . "galleries/c-p/original";
 try {

@@ -61,4 +61,5 @@ p {
   margin: auto auto 5%;
   padding: var(--content-padding);
   max-width: 800px;
+  text-align: justify;
 }
