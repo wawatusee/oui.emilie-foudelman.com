@@ -1,7 +1,6 @@
-<h2>contacts</h2>
 <div class="contacts-container">
     <ul class="contacts">
-        <li> <a href="info@emilie-foudelman.com">info@emilie-foudelman.com</a>
+        <li> <a href="mailto:info@emilie-foudelman.com">info@emilie-foudelman.com</a>
         </li>
         <li> <a href="tel:+41762416369">Tel : +41 76 241 63 69</a>
         </li>
