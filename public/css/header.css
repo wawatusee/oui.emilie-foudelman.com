@@ -34,8 +34,14 @@ header p {
 .mainsubtitle {
   font-family: "myTitleFont", Verdana, Geneva, Tahoma, sans-serif, sans-serif;
   margin: 0px 40px 20px 40px;
-  /* font-size: 3rem;*/
+
   margin-bottom: 20px;
+}
+.mainsubtitle h1{
+  font-size: 1.6em;
+}
+.mainsubtitle h2{
+  font-size: 1.4em;
 }
 .mainsubtitle a {
   font-family: "myTitleFont", Verdana, Geneva, Tahoma, sans-serif, sans-serif;
