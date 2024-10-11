@@ -63,3 +63,7 @@ p {
   max-width: 800px;
   text-align: justify;
 }
+:root {
+  --standartspace: 0.9em;
+  --content-padding: 20px;
+}

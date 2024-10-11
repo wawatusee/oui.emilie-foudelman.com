@@ -29,7 +29,7 @@
                 <div class="grid__item" data-size="{$image['width']}x{$image['height']}" style="position: absolute;">
                     <a href="{$originalImagePath}" class="img-wrap">
                         <img src="{$thumbImagePath}" alt="{$image['name']}">
-                        <div class="description description--grid">{$this->getDescription($image['name'])}</div>
+                        <!--<div class="description description--grid">{$this->getDescription($image['name'])}</div>-->
                     </a>
                 </div>
             HTML;
@@ -39,7 +39,7 @@
                 </div>
                 <!-- /grid -->
                 <div class="preview">
-                    <button class="action action--close"><i class="fa fa-times"></i><span class="text-hidden">Close</span></button>
+                    <button class="action action--close"><i class="fa fa-times"></i><span class="close-btn">X</span></button>
                     <div class="description description--preview"></div>
                 </div>
                 <!-- /preview -->

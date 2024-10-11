@@ -1,8 +1,6 @@
 /*MENUS*/
 /**********************/
-  body {
-    font-family: "myFirstFont";
-  }
+
 /*mainMenu*/
 /**********************/
 .links {
@@ -28,12 +26,9 @@
     --grey-clear-color: #a8a9ad;
     --rs-bckgrnd-img: url("../img/deco/logo-rs_30px.png");
   }
-  :root {
-    --standartspace: 0.9em;
-    --content-padding: 5px;
-  }
+
   
-}
+
 .responsiveMenu {
   overflow: hidden;
 }

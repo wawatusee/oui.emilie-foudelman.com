@@ -170,14 +170,14 @@
 	padding: 0;
 	cursor: pointer;
 	vertical-align: top;
-	color: #6bd68a;
+	color: var(--grey-clear-color);
 	border: none;
 	background: none;
 }
 
 .action:hover,
 .action:focus {
-	color: #6bd68a;
+	color: var(--secondary-blue-color);
 	outline: none;
 }
 
