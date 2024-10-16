@@ -1,8 +1,37 @@
 <h2 class="invisible-titre">Galeries</h2>
 <?php
+// Inclure les modèles et vues
+require_once('../src/model/model_galleries_choices.php');
+require_once('../src/view/view_galleries_choices.php');
+
+// Récupérer les données des galeries
+$galleriesDatas = new ModelGalleryChoices('img/content/galleries/');
+$galleryChoices = $galleriesDatas->getGalleryChoices(); // Récupérer le tableau des galeries
+
+// Récupérer la variable 'page' à partir de l'URL (ou définir une valeur par défaut)
+$page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : 1;
+
+// Instancier ViewGalleryChoices avec les deux arguments : les choix et la page courante
+$multiChoicesComponant = new ViewGalleryChoices($galleryChoices, $page);
+
+// Afficher le rendu
+echo $multiChoicesComponant->render();
+
+// Définir le nom de la galerie
+$galleryName = !empty($galleryChoices) ? $galleryChoices[0] : null; // Par défaut, prendre le premier élément du tableau
+
+// Vérifier si $_GET["gallery"] est renseigné et valide
+if (isset($_GET["gallery"]) && in_array($_GET["gallery"], $galleryChoices)) {
+    $galleryName = htmlspecialchars($_GET["gallery"]); // Utiliser la valeur de $_GET si elle est valide
+}
+
+echo $galleryName; // Affiche le nom de la galerie sélectionnée
+
 require_once('../src/model/gallery_model.php');
 require_once("../src/view/gallery_view.php");
-$cheminImages = $repImg . "galleries/c-p/original";
+$cheminImages = $repImg . 'galleries/' . $galleryName . '/original';
+
+
 try {
     // Instancie le modèle pour obtenir les images
     $gallery = new Model_gallery($cheminImages, 'image/jpeg');
