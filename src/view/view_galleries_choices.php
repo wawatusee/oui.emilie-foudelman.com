@@ -13,10 +13,8 @@ class ViewGalleryChoices {
             echo '<form action="" method="GET" id="galleryForm">';
             //echo '<label for="gallery">Choisir une galerie :</label>';
             echo '<select name="gallery" id="gallery" onchange="submitGalleryForm()">';
-    
             // Option d'instruction par défaut
-            echo '<option value="" disabled selected>Choisissez une galerie</option>';
-    
+            //echo '<option value="" disabled selected>Choisissez une galerie</option>';
             foreach ($this->galleryChoices as $choice) {
                 echo '<option value="' . htmlspecialchars($choice) . '">' . htmlspecialchars($choice) . '</option>';
             }

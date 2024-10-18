@@ -20,12 +20,14 @@
   padding: 10px;
 }
 .contacts a{
-  text-decoration: none;
-  color: var(--main-clear-color);
+color: var(--main-dark-color);
+text-decoration: none;
 font-size: 1.6em;
 }
 .contacts a:hover {
   color: var(--secondary-blue-color);
   text-decoration-line: underline;
-  font-weight: bold;
+}
+main{
+  padding: 15px;
 }
