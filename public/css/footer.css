@@ -4,6 +4,7 @@ footer{
   }
   footer{
     font-family: "myFirstFont",Times, Times New Roman, serif;
+    padding:15px;
   }
   footer>h2{
     color: var(--main-dark-color);
