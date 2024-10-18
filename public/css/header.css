@@ -8,50 +8,30 @@ header {
 .mainTitleBlock {
   background-color: var(--main-dark-color);
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-.btn-main {
-  color: var(--main-clear-color);
-  font-size: 1.8em;
-  margin: 40px 40px 0px 40px;
-  height: 40px;
-  text-decoration: none;
-}
-.btn-main:hover {
-  color: var(--secondary-red);
-}
-header H1{
- 
-  /*Centrer emilie foudelman*/
-}
-header H1,
-header p {
-  text-align: center;
+  flex-direction: column;
+  justify-content: center;
 }
 .mainsubtitle {
-  font-family: "myTitleFont", Verdana, Geneva, Tahoma, sans-serif, sans-serif;
-  margin: 0px 40px 20px 40px;
-
-  margin-bottom: 20px;
-}
-.mainsubtitle h1{
+margin: auto;
   font-family: "myHomeFont";
   letter-spacing: .5rem;
-  font-size: 1.6em;
+  font-size: 1.8em;
 }
-.mainsubtitle h2{
+
+.title-elmt{
+padding: 10px;
+ margin: auto;
+}
+.mainTitleBlock h2{
   font-family: "myTitleFont", Verdana, Geneva, Tahoma, sans-serif, sans-serif;
   font-size: 1.4em;
 }
 .mainsubtitle a {
   color: var(--main-clear-color);
-  font-size: 1.8em;
-  margin: 40px 40px 0px 40px;
-  height: 40px;
   text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .mainsubtitle a:hover {
   color: var(--secondary-red);
