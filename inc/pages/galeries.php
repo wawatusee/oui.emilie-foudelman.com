@@ -36,9 +36,9 @@ try {
     // Instancie le modèle pour obtenir les images
     $gallery = new Model_gallery($cheminImages, 'image/jpeg');
     $images = $gallery->getImages();
-
+//Important, en deuxième paramètre de l'instance de View_gallery, le nom du dossier à traiter $galleryName
     // Crée la vue avec la classe View_gallery
-    $view = new View_gallery($images);
+    $view = new View_gallery($images,$galleryName );
     echo $view->render(); // Affiche la galerie
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();

@@ -1,11 +1,13 @@
 <?php class View_gallery
 {
     private $images;
+    private $repository;
 
     // Le constructeur prend un tableau d'images du modèle
-    public function __construct(array $images)
+    public function __construct(array $images,$repository)
     {
         $this->images = $images;
+        $this->repository=$repository;
     }
 
     // Méthode pour générer la vue
@@ -21,8 +23,8 @@
         // Dossier pour les images originales et les miniatures (thumbs)
         foreach ($this->images as $image) {
             // Chemins dynamiques pour les images
-            $originalImagePath = 'img/content/galleries/c-p/original/' . $image['name'];
-            $thumbImagePath = 'img/content/galleries/c-p/thumbs/' . $image['name'];
+            $originalImagePath = 'img/content/galleries/'.$this->repository.'/original/'. $image['name'];
+            $thumbImagePath = 'img/content/galleries/'.$this->repository.'/thumbs/'. $image['name'];
 
             // HTML mélangé avec PHP via la syntaxe >>
             $output .= <<<HTML

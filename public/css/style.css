@@ -36,6 +36,7 @@ section {
 @font-face {
   font-family: "myTitleFont";
   src: url("./fonts/Montserrat-Thin.ttf");
+  /*src: url("./fonts/Runestars-Regular.ttf");*/
 }
 /*Use this font with this line => font-family: myTitleFont;*/
 body {
