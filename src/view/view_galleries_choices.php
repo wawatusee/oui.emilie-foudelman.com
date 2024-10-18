@@ -11,7 +11,7 @@ class ViewGalleryChoices {
     public function render() {
         if (!empty($this->galleryChoices)) {
             echo '<form action="" method="GET" id="galleryForm">';
-            echo '<label for="gallery">Choisir une galerie :</label>';
+            //echo '<label for="gallery">Choisir une galerie :</label>';
             echo '<select name="gallery" id="gallery" onchange="submitGalleryForm()">';
     
             // Option d'instruction par défaut

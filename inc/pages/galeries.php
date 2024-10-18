@@ -24,8 +24,8 @@ $galleryName = !empty($galleryChoices) ? $galleryChoices[0] : null; // Par défa
 if (isset($_GET["gallery"]) && in_array($_GET["gallery"], $galleryChoices)) {
     $galleryName = htmlspecialchars($_GET["gallery"]); // Utiliser la valeur de $_GET si elle est valide
 }
-
-echo $galleryName; // Affiche le nom de la galerie sélectionnée
+//Titre galerie
+//echo '<h3>'.$galleryName.'</h3>'; // Affiche le nom de la galerie sélectionnée
 
 require_once('../src/model/gallery_model.php');
 require_once("../src/view/gallery_view.php");

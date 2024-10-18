@@ -7,7 +7,6 @@ require_once "../config/menu.php";
     <?php require_once "../inc/head.php"?>
     <body>
         <?php require_once "../inc/header.php"?>
-
         <?php require_once "../inc/main.php"?>
         <?php require_once "../inc/footer.php"?>
     </body> 
