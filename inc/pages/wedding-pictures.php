@@ -1,1 +1,0 @@
-<h2>photos de mariage</h2>

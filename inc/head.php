@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" type="text/css" href="css/catalog.css" />
+	<script src="js/modernizr-custom.js"></script>
     <script src="js/menu.js"></script>
     <link rel="shortcut icon" type="image/png" href="favicon.ico">
-    <title><?= $titleWebSite[0].$titleWebSite[1].$titleWebSite[2].'.be'?></title>
+    <title>emilie-foudelman.com</title>
 </head>

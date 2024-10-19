@@ -1,40 +1,41 @@
-  /*Header*/
-  header{
-    background-color: var(--main-dark-color);
-    color: var(--main-clear-color);
-    justify-content: space-between;
-    align-items: center;
-    height:auto;
-  }
-  .mainTitleBlock{
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-.btn-main{
+/*Header*/
+header {
   color: var(--main-clear-color);
-  font-size: 1.8em;
-  margin:40px 40px 0px 40px;
-  height:40px;
-  text-decoration: none;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
 }
-.btn-main:hover{
+.mainTitleBlock {
+  background-color: var(--main-dark-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mainsubtitle {
+margin: auto;
+  font-family: "myHomeFont";
+  letter-spacing: .5rem;
+  font-size: 1.8em;
+}
+
+.title-elmt{
+padding: 10px;
+ margin: auto;
+}
+.mainTitleBlock h2{
+  font-family: "myTitleFont", Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+  font-size: 1.4em;
+}
+.mainsubtitle a {
+  color: var(--main-clear-color);
+  text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.mainsubtitle a:hover {
   color: var(--secondary-red);
 }
 
-  header H1, header p{
-    text-align: center;
-  }
-  .logo{
-    margin:40px 40px 0px 40px;
-  }
-  .mainsubtitle{
-    font-family: "myTitleFont",Verdana, Geneva, Tahoma, sans-serif, sans-serif;
-    margin: 0px 40px 20px 40px;
-  }
-
-
-  /*End header*/
+/*End header*/
 /**********************/

@@ -33,7 +33,7 @@ define('JSON','../json/');
 /************************/
 //Titre du site
 //Les éléments du titre sont décomposés dans un tableau pour permettre plus de mobilité dans la présentation de celui-ci. 
-$titleWebSite=["emilie","foudelman", ", Oui!"];
+$titleWebSite=["emilie","foudelman",""];
 /************************/
 //Fin des paramètres de base du site
 //Fin de config du site, partie publique
