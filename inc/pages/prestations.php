@@ -14,12 +14,12 @@
     Chère mariée, je serai votre miroir, la fidèle gardienne de votre paquet de mouchoirs, votre bras droit, prête à dégainer le mascara. <br>
     Tel un espion, j'ai un sens aigu de l’observation et en toute discrétion.<br>
     Les yeux partout. Je serai aussi votre ombre, celle qui va immortaliser l'instant où Damien, votre petit cousin rencontrera pour la première fois la petite Justine, sa future concubine. <br>
-    Mais aussi le slow de grand maman avec avec votre beau frère Bertrand. <br>
+    Mais aussi le slow de grand-maman avec avec votre beau frère Bertrand. <br>
     Ou Milou endormi sur les genoux de tonton Henri, lui qui a toujours dit que les toutous n’étaient pas ses amis. <br><br>
 
     Croyez moi, si j'ai confiance (aveugle) en moi pour vos photos de mariage, vous pouvez aussi. <br>
-    Si avec ses mots rigolos j'essaye de vous captiver, du sérieux de mon boulot je vous épaterez. <br>
-    Mon moment préféré, si vous me le permettez, ce sera vos larmes de joie quand je ferai vous défiler tous les clichés authentiques de cette journée unique. <br>
+    Si avec ses mots rigolos j'essaye de vous captiver, du sérieux de mon boulot je vous épaterai. <br>
+    Mon moment préféré, si vous me le permettez, ce sera vos larmes de joie quand je vous ferai  défiler tous les clichés authentiques de cette journée unique. <br>
     Mon travail est une sorte d’inventaire mémoriel. <br>
     Rendre l’éphémère éternel. <br><br>
 
