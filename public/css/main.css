@@ -6,7 +6,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  gap: 15px;
+  flex-wrap: wrap;
 }
 .contacts{
   color: var(--main-dark-color);
@@ -28,6 +29,36 @@ font-size: 1.6em;
   color: var(--secondary-blue-color);
   text-decoration-line: underline;
 }
+.portrait-contact{
+  width:max-content;
+  border-radius: 30px;
+  overflow: hidden;
+}
 main{
   padding: 15px;
 }
+/*Liens dans la page contacts*/
+.navfooterbloc a:hover{
+  text-decoration: underline;
+  color: var(--secondary-blue-color);
+  }
+  /*Particular communications link*/
+  .contacts-maillink::before{
+    content:url('/public/img/deco/icons8-mail-30.png');
+    position: relative;
+    top: 10px;
+    left: -10px;
+  }
+  .contacts-phonelink::before{
+    content:url('/public/img/deco/icons8-phone-30.png');
+    position: relative;
+    top: 10px;
+    left: -10px;
+    bottom: 0;
+  }
+  .contacts-whatsapplink::before{
+    content:url('/public/img/deco/icons8-whatsapp-30.png');
+    position: relative;
+    top: 10px;
+    left: -10px;
+  }
