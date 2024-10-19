@@ -1,6 +1,6 @@
 //Menu responsive
 function responsiveMenu() {
-    var x = document.getElementById("responsiveMenu");
+    let x = document.getElementById("responsiveMenu");
     if (x.className === "responsiveMenu") {
       x.className += " responsive";
     } else {

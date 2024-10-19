@@ -4,30 +4,17 @@
 /*mainMenu*/
 /**********************/
 .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-  .responsiveMenu {
-    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
-  }
-  header {
-    color: var(--main-clear-color);
-  }
-
-  :root {
-    --main-dark-color: #18161b;
-    --main-clear-color: #e4e2e3;
-    --first-color: #c5c5c5;
-    --secondary-blue-color: #4c7a78;
-    --secondary-yellow: #c9c187;
-    --secondary-red: #970102;
-    --grey-clear-color: #a8a9ad;
-    --rs-bckgrnd-img: url("../img/deco/logo-rs_30px.png");
-  }
-
-  
+.responsiveMenu {
+  font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+}
+header {
+  color: var(--main-clear-color);
+}
 
 .responsiveMenu {
   overflow: hidden;
@@ -36,12 +23,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  font-family:  Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
   margin-top: 5px;
 }
 .responsiveMenu a {
   padding: 10px 20px;
-  display:inline;
+  display: inline;
   text-decoration: none;
   background-color: var(--grey-clear-color);
   color: var(--main-clear-color);
@@ -61,6 +48,8 @@
 
 .responsiveMenu .icon {
   display: none;
+  margin: 0 15px 0 15px;
+  height: fit-content;
 }
 
 @media screen and (max-width: 600px) {
@@ -68,7 +57,7 @@
     display: none;
   }
   .responsiveMenu a.icon {
-    float: left;
+    /*float: left;*/
     display: block;
   }
 }
@@ -77,13 +66,13 @@
   .responsiveMenu.responsive {
     position: relative;
   }
-  .responsiveMenu.responsive .icon {
+  /*.responsiveMenu.responsive .icon {
     position: absolute;
-    right: 0;
-    top:-60px;
-  }
+
+    top: -60px;
+  }*/
   .responsiveMenu.responsive a {
-    float: left;
+
     display: block;
     text-align: left;
   }

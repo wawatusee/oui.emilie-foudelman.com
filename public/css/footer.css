@@ -26,11 +26,12 @@ background-color: var(--main-dark-color);
 display: flex;
 flex-direction: row;
 justify-content: space-around;
+flex-wrap: wrap;
 margin-top: 15px;
 padding-top: 15px;
 }
 .navfooterbloc{
-margin-bottom: var(--standartspace);
+margin: var(--standartspace);
 }
 .navfooterbloc a{
 display: block;
