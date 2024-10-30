@@ -19,13 +19,9 @@ class ViewGalleryChoices {
         echo '<form action="" method="GET" id="galleryForm">';
         echo '<select name="gallery" id="gallery" onchange="this.form.submit()">';
 
-        // Option d'instruction par défaut si aucune sélection n'existe encore
-        if (empty($this->selectedGallery)) {
-            echo '<option value="" disabled selected>Choisissez une galerie</option>';
-        }
-
+        // Boucle pour afficher chaque option
         foreach ($this->galleryChoices as $choice) {
-            // Détermine si c'est la galerie actuellement sélectionnée
+            // Marquer l'option sélectionnée par défaut si elle est déjà choisie
             $isSelected = $choice === $this->selectedGallery ? ' selected' : '';
             echo '<option value="' . htmlspecialchars($choice) . '"' . $isSelected . '>' . htmlspecialchars($choice) . '</option>';
         }
