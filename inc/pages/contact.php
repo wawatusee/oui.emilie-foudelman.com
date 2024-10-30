@@ -1,4 +1,10 @@
 <h2 class="invisible-titre">Contacts</h2>
+<p>
+Bonjour, <br>
+Si vous souhaitez plus de renseignements sur les tarifs et disponibilités, contactez-moi.<br>
+Je vous proposerai un rendez-vous gratuit et sans engagement afin que nous puissions discuter des possibilités.<br>
+Au plaisir de vous rencontrer,<br>Emilie
+</p>
 <div class="contacts-container">
     <div class="portrait-contact">
         <img  src="<?=$repDeco?>portrait-emilie.jpg" alt="Portrait de l'artiste">

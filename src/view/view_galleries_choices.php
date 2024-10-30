@@ -2,10 +2,12 @@
 class ViewGalleryChoices {
     private $galleryChoices;
     private $page;
+    private $selectedGallery;
 
-    public function __construct(array $galleryChoices, string $page) {
+    public function __construct(array $galleryChoices, string $page, string $selectedGallery = '') {
         $this->galleryChoices = $galleryChoices;
         $this->page = $page;
+        $this->selectedGallery = $selectedGallery;
     }
 
     public function render() {
@@ -17,11 +19,15 @@ class ViewGalleryChoices {
         echo '<form action="" method="GET" id="galleryForm">';
         echo '<select name="gallery" id="gallery" onchange="this.form.submit()">';
 
-        // Option d'instruction par défaut
-        // echo '<option value="" disabled selected>Choisissez une galerie</option>';
-        
+        // Option d'instruction par défaut si aucune sélection n'existe encore
+        if (empty($this->selectedGallery)) {
+            echo '<option value="" disabled selected>Choisissez une galerie</option>';
+        }
+
         foreach ($this->galleryChoices as $choice) {
-            echo '<option value="' . htmlspecialchars($choice) . '">' . htmlspecialchars($choice) . '</option>';
+            // Détermine si c'est la galerie actuellement sélectionnée
+            $isSelected = $choice === $this->selectedGallery ? ' selected' : '';
+            echo '<option value="' . htmlspecialchars($choice) . '"' . $isSelected . '>' . htmlspecialchars($choice) . '</option>';
         }
 
         echo '</select>';

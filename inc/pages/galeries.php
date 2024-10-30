@@ -1,18 +1,20 @@
 <h2 class="invisible-titre">Galeries</h2>
 <?php
 // Inclure les modèles et vues
+$selectedGallery = isset($_GET['gallery']) ? htmlspecialchars($_GET['gallery']) : '';
+
 require_once('../src/model/model_galleries_choices.php');
 require_once('../src/view/view_galleries_choices.php');
 
 // Récupérer les données des galeries
 $galleriesDatas = new ModelGalleryChoices('img/content/galleries/');
 $galleryChoices = $galleriesDatas->getGalleryChoices(); // Récupérer le tableau des galeries
-
+var_dump($galleryChoices);
 // Récupérer la variable 'page' à partir de l'URL (ou définir une valeur par défaut)
 $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : 1;
 
 // Instancier ViewGalleryChoices avec les deux arguments : les choix et la page courante
-$multiChoicesComponant = new ViewGalleryChoices($galleryChoices, $page);
+$multiChoicesComponant = new ViewGalleryChoices($galleryChoices, $page,$selectedGallery);
 
 // Afficher le rendu
 echo $multiChoicesComponant->render();
