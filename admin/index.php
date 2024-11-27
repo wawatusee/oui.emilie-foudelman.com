@@ -43,9 +43,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_FILES['image_upload'])) {
         $galleryName = $_POST['gallery_name'];
+        $file = $_FILES['image_upload'];
+
         try {
-            $galleryManager->uploadImage($galleryName, $_FILES['image_upload']);
-            echo "Image uploadée avec succès dans la galerie '$galleryName'.";
+            // Initialiser ImageUploader
+            $imageUploader = new ImageUploader($baseDir . '/' . $galleryName, $_FILES['image_upload']['name'], pathinfo($_FILES['image_upload']['name'], PATHINFO_EXTENSION));
+            
+            // Upload de l'image et gestion du redimensionnement
+            if ($imageUploader->upload($file)) {
+                echo "Image uploadée avec succès dans la galerie '$galleryName'.";
+
+                // Appeler la méthode pour copier l'image vers les vignettes
+                $thumbsDir = $baseDir . '/' . $galleryName . '/thumbs';
+                if (!is_dir($thumbsDir)) {
+                    mkdir($thumbsDir, 0777, true);  // Créer le dossier thumbs si nécessaire
+                }
+
+                // Copier l'image vers le dossier des vignettes
+                $targetFile = $baseDir . '/' . $galleryName . '/' . $imageUploader->getImageName() . '.' . $imageUploader->getImageFormat();
+                $imageUploader->copyToThumbs($targetFile, $thumbsDir);
+
+                echo "Vignette créée avec succès.";
+            } else {
+                echo "Erreur lors de l'upload de l'image.";
+            }
         } catch (Exception $e) {
             echo "Erreur : " . $e->getMessage();
         }
