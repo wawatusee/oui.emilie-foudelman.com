@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 // index.php dans le dossier admin
 
 require_once 'gallery_manager.php';
@@ -46,29 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $file = $_FILES['image_upload'];
 
         try {
-            // Initialiser ImageUploader
-            $imageUploader = new ImageUploader($baseDir . '/' . $galleryName, $_FILES['image_upload']['name'], pathinfo($_FILES['image_upload']['name'], PATHINFO_EXTENSION));
-            
-            // Upload de l'image et gestion du redimensionnement
-            if ($imageUploader->upload($file)) {
-                echo "Image uploadée avec succès dans la galerie '$galleryName'.";
+            // Utilisation de GalleryManager pour uploader l'image
+            $galleryManager->uploadImage($galleryName, $file);
 
-                // Appeler la méthode pour copier l'image vers les vignettes
-                $thumbsDir = $baseDir . '/' . $galleryName . '/thumbs';
-                if (!is_dir($thumbsDir)) {
-                    mkdir($thumbsDir, 0777, true);  // Créer le dossier thumbs si nécessaire
-                }
-
-                // Copier l'image vers le dossier des vignettes
-                $targetFile = $baseDir . '/' . $galleryName . '/' . $imageUploader->getImageName() . '.' . $imageUploader->getImageFormat();
-                $imageUploader->copyToThumbs($targetFile, $thumbsDir);
-
-                echo "Vignette créée avec succès.";
-            } else {
-                echo "Erreur lors de l'upload de l'image.";
-            }
         } catch (Exception $e) {
-            echo "Erreur : " . $e->getMessage();
+            echo "Erreur lors de l'upload de l'image : " . $e->getMessage();
         }
     }
 }
