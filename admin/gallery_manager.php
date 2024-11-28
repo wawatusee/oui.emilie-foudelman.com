@@ -3,8 +3,7 @@
 class GalleryManager
 {
     private $baseDir;
-    private $defaultImageWidth = 1280; // Largeur par défaut des grandes images
-    private $defaultThumbWidth = 400;  // Largeur par défaut des miniatures
+
 
     public function __construct($baseDir)
     {
@@ -66,81 +65,112 @@ class GalleryManager
         }
         rmdir($dir);
     }
-    //GESTION IMAGES
-    // Permet de modifier dynamiquement la taille des grandes images
-    public function setDefaultImageWidth($width)
-    {
-        $this->defaultImageWidth = $width;
-    }
-
-    // Permet de modifier dynamiquement la taille des miniatures
-    public function setDefaultThumbWidth($width)
-    {
-        $this->defaultThumbWidth = $width;
-    }
+    // MÉTHODES GESTION IMAGES
     public function uploadImage($galleryName, $file)
     {
-        // Initialisation de ImageUploader avec les paramètres appropriés
-        $imageUploader = new ImageUploader(
-            $this->baseDir . '/' . $galleryName,
-            $file['name'],
-            pathinfo($file['name'], PATHINFO_EXTENSION)
-        );
-
-        // Vérification du fichier et upload
-        if ($imageUploader->upload($file)) {
-            echo "Image uploadée avec succès dans la galerie '$galleryName'.";
-
-            // Appel à la méthode de redimensionnement (c'est ici qu'on gère la taille)
-            $targetFile = $this->baseDir . '/' . $galleryName . '/' . $imageUploader->getImageName() . '.' . $imageUploader->getImageFormat();
-
-            // Redimensionnement avec la méthode publique
-            $this->resizeImageForGallery($galleryName,$targetFile, 1280, 1280);  // Redimensionner à 1280px
-
-            // Créer les miniatures
-            $thumbsDir = $this->baseDir . '/' . $galleryName . '/thumbs';
-            if (!is_dir($thumbsDir)) {
-                mkdir($thumbsDir, 0777, true);  // Créer le dossier thumbs si nécessaire
+        $galleryDir = $this->baseDir . $this->formatGalleryName($galleryName);
+    
+        // Vérifie si le dossier "original" existe
+        if (!is_dir($galleryDir . '/original')) {
+            throw new Exception("La galerie '$galleryName' n'existe pas ou est mal configurée.");
+        }
+    
+        // Vérifie la validité du fichier
+        if (!isset($file['tmp_name']) || !file_exists($file['tmp_name'])) {
+            throw new Exception("Le fichier temporaire est introuvable ou a été supprimé.");
+        }
+    
+        // Debug: Afficher les informations sur le fichier
+        echo "Fichier reçu : " . $file['tmp_name'] . " (" . $file['type'] . ")\n";
+    
+        // Obtenir les dimensions et l'orientation de l'image
+        $imageInfo = $this->getImageInfo($file['tmp_name']);
+        if (!$imageInfo) {
+            throw new Exception("Le fichier image n'est pas valide.");
+        }
+    
+        // Debug: Afficher les informations d'image
+        echo "Image dimensions : " . $imageInfo['width'] . "x" . $imageInfo['height'] . "\n";
+    
+        $orientation = $this->getImageOrientation($imageInfo);
+    
+        // Obtenir les paramètres des traitements (original, thumb, etc.)
+        $processes = $this->getProcessingParameters($galleryDir, $orientation);
+    
+        // Parcourir chaque processus défini (original, thumb) et traiter l'image
+        foreach ($processes as $process) {
+            try {
+                // Debug: Afficher les paramètres du processus
+                echo "Traitement : " . json_encode($process) . "\n";
+    
+                $uploader = new ImageUploader(
+                    $process['targetDir'],
+                    $file,
+                    $process['format'],
+                    $process['resize']
+                );
+                $uploader->upload(); // Lance l'upload/redimensionnement
+            } catch (Exception $e) {
+                echo "Erreur lors du traitement : " . $e->getMessage() . "\n";
             }
+        }
+    
+        echo "Image uploadée et traitée avec succès dans la galerie '$galleryName'.";
+    }
+    
 
-            // Créer la vignette de l'image
-            $imageUploader->createThumbnail($targetFile);
-            echo "Vignette créée avec succès.";
+    // Méthode utilitaire pour obtenir les dimensions de l'image
+    private function getImageInfo($filePath)
+    {
+        $imageInfo = getimagesize($filePath);
+        if (!$imageInfo) return false;
+
+        return [
+            'width' => $imageInfo[0],
+            'height' => $imageInfo[1],
+            'mime' => $imageInfo['mime']
+        ];
+    }
+
+    // Méthode utilitaire pour déterminer l'orientation de l'image
+    private function getImageOrientation($imageInfo)
+    {
+        return $imageInfo['width'] > $imageInfo['height'] ? 'landscape' : 'portrait';
+    }
+
+    // Méthode utilitaire pour définir les paramètres de traitement
+    private function getProcessingParameters($galleryDir, $orientation)
+    {
+        $processes = [];
+
+        // Paramètres pour la version "original"
+        if ($orientation === 'portrait') {
+            $processes[] = [
+                'targetDir' => $galleryDir . '/original',
+                'format' => 'jpg',
+                'resize' => ['height' => 1280]
+            ];
         } else {
-            echo "Erreur lors de l'upload de l'image.";
-        }
-    }
-    // Méthode privée dans GalleryManager pour gérer le redimensionnement
-    private function resizeImageForGallery($galleryName, $filePath, $maxWidth, $maxHeight)
-    {
-        $imageUploader = new ImageUploader(
-            $this->baseDir . '/' . $galleryName,
-            basename($filePath, '.' . pathinfo($filePath, PATHINFO_EXTENSION)),
-            pathinfo($filePath, PATHINFO_EXTENSION)
-        );
-
-        // Ici on appelle la méthode de redimensionnement avec les tailles max
-        $imageUploader->resizeImage($filePath, $maxWidth, $maxHeight);
-    }
-    public function resizeImage($filePath, $targetWidth, $targetHeight = null)
-    {
-        $fileInfo = getimagesize($filePath);
-        if (!$fileInfo) {
-            throw new Exception("Invalid image file");
+            $processes[] = [
+                'targetDir' => $galleryDir . '/original',
+                'format' => 'jpg',
+                'resize' => ['width' => 1280]
+            ];
         }
 
-        $imageType = $fileInfo[2];
-        $imageUploader = new ImageUploader(dirname($filePath), basename($filePath), image_type_to_extension($imageType, false));
+        // Paramètres pour la version "thumb"
+        $processes[] = [
+            'targetDir' => $galleryDir . '/thumbs',
+            'format' => 'jpg',
+            'resize' => ['width' => 400]
+        ];
 
-        // Si pas de hauteur définie, la redimensionner pour respecter l'aspect ratio
-        if (!$targetHeight) {
-            $targetHeight = $targetWidth;  // Assure que la hauteur est égale à la largeur si non spécifiée
-        }
-
-        $imageUploader->resizeImage($filePath, $targetWidth, $targetHeight);
+        return $processes;
     }
 
-    // Supprime une image dans "original" et "thumbs"
+
+
+    // Supprimer une image (inchangé)
     public function deleteImage($galleryName, $imageName)
     {
         $galleryDir = $this->baseDir . $this->formatGalleryName($galleryName);
