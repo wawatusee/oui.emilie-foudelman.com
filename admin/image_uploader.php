@@ -102,4 +102,51 @@ class ImageUploader {
         imagedestroy($image);
         imagedestroy($newImage);
     }
+    // Méthode publique pour redimensionner une image à une largeur spécifique réée pour les miniatures
+    public function resizeToWidth(string $inputPath, string $outputPath, int $width): void {
+        // Charger l'image selon son type
+        $imageInfo = getimagesize($inputPath);
+        $imageType = $imageInfo[2];
+
+        switch ($imageType) {
+            case IMAGETYPE_JPEG:
+                $image = imagecreatefromjpeg($inputPath);
+                break;
+            case IMAGETYPE_PNG:
+                $image = imagecreatefrompng($inputPath);
+                break;
+            case IMAGETYPE_GIF:
+                $image = imagecreatefromgif($inputPath);
+                break;
+            default:
+                throw new Exception("Unsupported image format");
+        }
+
+        $origWidth = imagesx($image);
+        $origHeight = imagesy($image);
+        $aspectRatio = $origWidth / $origHeight;
+
+        $newWidth = $width;
+        $newHeight = round($width / $aspectRatio);
+
+        $newImage = imagecreatetruecolor($newWidth, $newHeight);
+        imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $origWidth, $origHeight);
+
+        // Sauvegarder l'image redimensionnée
+        switch ($imageType) {
+            case IMAGETYPE_JPEG:
+                imagejpeg($newImage, $outputPath);
+                break;
+            case IMAGETYPE_PNG:
+                imagepng($newImage, $outputPath);
+                break;
+            case IMAGETYPE_GIF:
+                imagegif($newImage, $outputPath);
+                break;
+        }
+
+        // Libérer les ressources
+        imagedestroy($image);
+        imagedestroy($newImage);
+    }
 }

@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         try {
             // Initialiser ImageUploader
             $imageUploader = new ImageUploader($baseDir . '/' . $galleryName, $_FILES['image_upload']['name'], pathinfo($_FILES['image_upload']['name'], PATHINFO_EXTENSION));
-            
+
             // Upload de l'image et gestion du redimensionnement
             if ($imageUploader->upload($file)) {
                 echo "Image uploadée avec succès dans la galerie '$galleryName'.";
@@ -80,10 +80,12 @@ $galleries = array_diff(scandir($baseDir), array('.', '..'));
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Gestionnaire de Galeries</title>
 </head>
+
 <body>
     <h1>Gestionnaire de Galeries</h1>
 
@@ -107,9 +109,9 @@ $galleries = array_diff(scandir($baseDir), array('.', '..'));
     <h2>Supprimer une galerie</h2>
     <form method="POST">
         <select name="gallery_name" required>
-                <?php foreach ($galleries as $gallery): ?>
-                    <option value="<?= htmlspecialchars($gallery) ?>"><?= htmlspecialchars($gallery) ?></option>
-                <?php endforeach; ?>
+            <?php foreach ($galleries as $gallery): ?>
+                <option value="<?= htmlspecialchars($gallery) ?>"><?= htmlspecialchars($gallery) ?></option>
+            <?php endforeach; ?>
         </select>
         <!--<input type="text" name="gallery_name" required placeholder="Nom de la galerie à supprimer">-->
         <button type="submit" name="delete_gallery">Supprimer</button>
@@ -117,16 +119,27 @@ $galleries = array_diff(scandir($baseDir), array('.', '..'));
 
     <h2>Uploader des image dans une galerie existante</h2>
     <ul>
-    <?php foreach ($galleries as $gallery): ?>
-        <li>
-            <?= htmlspecialchars($gallery) ?>
-            <form action="upload_images_page.php" method="post" style="display:inline;">
-                <input type="hidden" name="galleryName" value="<?= htmlspecialchars($gallery) ?>">
-                <button type="submit">Upload Images</button>
-            </form>
-        </li>
-    <?php endforeach; ?>
-</ul>
+        <?php foreach ($galleries as $gallery): ?>
+            <li>
+                <?= htmlspecialchars($gallery) ?>
+                <form action="upload_images_page.php" method="post" style="display:inline;">
+                    <input type="hidden" name="galleryName" value="<?= htmlspecialchars($gallery) ?>">
+                    <button type="submit">Upload Images</button>
+                </form>
+            </li>
+        <?php endforeach; ?>
+    </ul> 
+    <!--Rafraichit les miniatures-->
+    <form action="refresh_gallery_thumbs.php" method="POST">
+
+    <select name="gallery_name">
+        <?php foreach ($galleries as $gallery): ?>
+            <option value="<?= htmlspecialchars($gallery) ?>"><?= htmlspecialchars($gallery) ?></option>
+        <?php endforeach; ?>
+    </select>
+    <button type="submit">Rafraîchir les miniatures</button>
+</form>
 
 </body>
+
 </html>
