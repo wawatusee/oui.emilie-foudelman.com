@@ -12,5 +12,4 @@ $menuMain_view = $menusView->getViewMainMenu($menuMain_model, $singlePage);
     <?php
     echo "<div class='links'>" . $menuMain_view . "</div>";
     ?>
-
 </nav>
