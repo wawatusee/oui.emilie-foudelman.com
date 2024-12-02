@@ -95,18 +95,27 @@ $galleries = array_diff(scandir($baseDir), array('.', '..'));
 
     <h2>Renommer une galerie</h2>
     <form method="POST">
-        <input type="text" name="old_name" required placeholder="Nom actuel de la galerie">
+        <select name="old_name" required>
+            <?php foreach ($galleries as $gallery): ?>
+                <option value="<?= htmlspecialchars($gallery) ?>"><?= htmlspecialchars($gallery) ?></option>
+            <?php endforeach; ?>
+        </select>
         <input type="text" name="new_name" required placeholder="Nouveau nom de la galerie">
         <button type="submit" name="rename_gallery">Renommer</button>
     </form>
 
     <h2>Supprimer une galerie</h2>
     <form method="POST">
-        <input type="text" name="gallery_name" required placeholder="Nom de la galerie à supprimer">
+        <select name="gallery_name" required>
+                <?php foreach ($galleries as $gallery): ?>
+                    <option value="<?= htmlspecialchars($gallery) ?>"><?= htmlspecialchars($gallery) ?></option>
+                <?php endforeach; ?>
+        </select>
+        <!--<input type="text" name="gallery_name" required placeholder="Nom de la galerie à supprimer">-->
         <button type="submit" name="delete_gallery">Supprimer</button>
     </form>
 
-    <h2>Uploader une image dans une galerie</h2>
+    <h2>Uploader des image dans une galerie</h2>
     <form method="POST" enctype="multipart/form-data">
         <select name="gallery_name" required>
             <?php foreach ($galleries as $gallery): ?>
