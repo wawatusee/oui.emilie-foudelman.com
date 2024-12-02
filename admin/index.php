@@ -119,9 +119,16 @@ $galleries = array_diff(scandir($baseDir), array('.', '..'));
 
     <h2>Galeries existantes</h2>
     <ul>
-        <?php foreach ($galleries as $gallery): ?>
-            <li><?= htmlspecialchars($gallery) ?></li>
-        <?php endforeach; ?>
-    </ul>
+    <?php foreach ($galleries as $gallery): ?>
+        <li>
+            <?= htmlspecialchars($gallery) ?>
+            <form action="upload_images_page.php" method="post" style="display:inline;">
+                <input type="hidden" name="galleryName" value="<?= htmlspecialchars($gallery) ?>">
+                <button type="submit">Upload Images</button>
+            </form>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
 </body>
 </html>

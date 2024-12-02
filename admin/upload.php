@@ -1,10 +1,7 @@
 <?php
-// Afficher les erreurs pour le débogage
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+ob_start(); // Capture toute sortie accidentelle
 
-require 'ImageUploader.php';
+require 'image_uploader.php';
 
 header('Content-Type: application/json');
 
@@ -16,27 +13,22 @@ try {
     $height = $_POST['height'];
     $imageFormat = $_POST['imageFormat'];
 
-    // Vérifiez si les fichiers ont bien été téléchargés
     if (!isset($_FILES['images'])) {
         throw new Exception("No files uploaded");
     }
 
-    // Extraire les noms des fichiers sans extension
-    $imageNames = array();
-    foreach ($_FILES['images']['name'] as $key => $name) {
-        $imageNames[] = pathinfo($name, PATHINFO_FILENAME);
-    }
-
-    // Boucle pour traiter chaque fichier téléchargé
     foreach ($_FILES['images']['tmp_name'] as $key => $tmpName) {
-        $uploader = new ImageUploader($uploadDir, $width, $height, $imageNames[$key], $imageFormat);
-        $uploader->upload([
+        $file = [
             'name' => $_FILES['images']['name'][$key],
             'type' => $_FILES['images']['type'][$key],
             'tmp_name' => $tmpName,
             'error' => $_FILES['images']['error'][$key],
             'size' => $_FILES['images']['size'][$key],
-        ]);
+        ];
+
+        $imageName = pathinfo($file['name'], PATHINFO_FILENAME);
+        $uploader = new ImageUploader($uploadDir, $width, $height, $imageName, $imageFormat);
+        $uploader->upload($file);
     }
 
     $response['success'] = true;
@@ -44,5 +36,11 @@ try {
     $response['error'] = $e->getMessage();
 }
 
-echo json_encode($response);
-?>
+// Capture de sortie inattendue et JSON sans erreurs
+ob_end_clean();
+try {
+    echo json_encode($response, JSON_THROW_ON_ERROR | JSON_PARTIAL_OUTPUT_ON_ERROR);
+} catch (JsonException $jsonError) {
+    echo json_encode(['success' => false, 'error' => 'JSON encoding error: ' . $jsonError->getMessage()]);
+}
+exit;
