@@ -115,18 +115,7 @@ $galleries = array_diff(scandir($baseDir), array('.', '..'));
         <button type="submit" name="delete_gallery">Supprimer</button>
     </form>
 
-    <h2>Uploader des image dans une galerie</h2>
-    <form method="POST" enctype="multipart/form-data">
-        <select name="gallery_name" required>
-            <?php foreach ($galleries as $gallery): ?>
-                <option value="<?= htmlspecialchars($gallery) ?>"><?= htmlspecialchars($gallery) ?></option>
-            <?php endforeach; ?>
-        </select>
-        <input type="file" name="image_upload" required>
-        <button type="submit">Uploader</button>
-    </form>
-
-    <h2>Galeries existantes</h2>
+    <h2>Uploader des image dans une galerie existante</h2>
     <ul>
     <?php foreach ($galleries as $gallery): ?>
         <li>
