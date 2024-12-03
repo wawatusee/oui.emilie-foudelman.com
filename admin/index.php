@@ -128,18 +128,16 @@ $galleries = array_diff(scandir($baseDir), array('.', '..'));
                 </form>
             </li>
         <?php endforeach; ?>
-    </ul> 
+    </ul>
     <!--Rafraichit les miniatures-->
     <form action="refresh_gallery_thumbs.php" method="POST">
-
-    <select name="gallery_name">
-        <?php foreach ($galleries as $gallery): ?>
-            <option value="<?= htmlspecialchars($gallery) ?>"><?= htmlspecialchars($gallery) ?></option>
-        <?php endforeach; ?>
-    </select>
-    <button type="submit">Rafraîchir les miniatures</button>
-</form>
-
+        <select name="gallery_name">
+            <?php foreach ($galleries as $gallery): ?>
+                <option value="<?= htmlspecialchars($gallery) ?>"><?= htmlspecialchars($gallery) ?></option>
+            <?php endforeach; ?>
+        </select>
+        <button type="submit">Rafraîchir les miniatures</button>
+    </form>
 </body>
 
 </html>
