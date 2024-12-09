@@ -1,5 +1,5 @@
 <?php
- require_once("../config/config.php");
+require_once("../config/config.php");
 
 ?>
 <?php
@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['galleryName']) && !empty($_POST['galleryName'])) {
         // Récupère et sécurise la valeur
         $galleryName = htmlspecialchars($_POST['galleryName']);
-        
+
         // Affiche ou utilise le nom de la galerie
         echo "Nom de la galerie reçu : " . $galleryName;
     } else {
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo "Accès non autorisé.";
 }
-$repgalleries=$repImg.'galleries/'.$galleryName.'/original';
+$repgalleries = $repImg . 'galleries/' . $galleryName . '/original';
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,9 +35,10 @@ $repgalleries=$repImg.'galleries/'.$galleryName.'/original';
     <input type="file" id="fileInput" multiple />
     <button onclick="uploadImages()">Upload</button>
     <!--Rafraichit les miniatures-->
-
-
-
+    <form action="refresh_gallery_thumbs.php" method="POST">
+        <input type="hidden" name="galleryName" value="<?$galleryName?>">
+        <button type="submit">Rafraîchir les miniatures</button>
+    </form>
     <script>
         function uploadImages() {
             const fileInput = document.getElementById('fileInput');

@@ -61,62 +61,6 @@ class GalleryManager
         $this->defaultThumbWidth = $width;
     }
 
-    // Upload une image dans "original" et crée une miniature dans "thumbs"
-    /* public function uploadImage($galleryName, $file)
-    {
-        $galleryPath  = $this->baseDir . $this->formatGalleryName($galleryName);
-        $thumbsPath = $galleryPath . '/thumbs';
-        $originalPath = $galleryPath . '/original';
-
-        $imageUploader = new ImageUploader($originalPath, pathinfo($file['name'], PATHINFO_FILENAME), pathinfo($file['name'], PATHINFO_EXTENSION));
-
-        if (!$imageUploader->upload($file)) {
-            throw new Exception("Failed to upload image");
-        }
-
-        // Resize the original image
-        $originalFilePath = $originalPath . '/' . $imageUploader->getImageName();
-        $this->resizeImage($originalFilePath, $this->defaultImageWidth); // Redimensionnement selon la largeur par défaut
-
-        // Resize and move to thumbnails
-        if (!is_dir($thumbsPath)) {
-            mkdir($thumbsPath, 0777, true);
-        }
-        $thumbFilePath = $thumbsPath . '/' . $imageUploader->getImageName();
-        $this->resizeImage($originalFilePath, $this->defaultThumbWidth, $thumbFilePath);
-    }*/
-    public function uploadImage($galleryName, $file)
-    {
-        // Initialisation de ImageUploader avec les paramètres appropriés
-        $imageUploader = new ImageUploader(
-            $this->baseDir . '/' . $galleryName,
-            $_FILES['image_upload']['name'],
-            pathinfo($_FILES['image_upload']['name'], PATHINFO_EXTENSION)
-        );
-
-        // Vérification du fichier et upload
-        if ($imageUploader->upload($file)) {
-            echo "Image uploadée avec succès dans la galerie '$galleryName'.";
-
-            // Appel à la méthode de redimensionnement (c'est ici qu'on gère la taille)
-            $targetFile = $this->baseDir . '/' . $galleryName . '/' . $imageUploader->getImageName() . '.' . $imageUploader->getImageFormat();
-
-            // Redimensionner l'image en fonction de la logique métier (par exemple, largeur max 1280px)
-            $this->resizeImageForGallery($galleryName, $targetFile, 1280, 1280); // Redimensionner à 1280px
-
-            // Créer les miniatures
-            $thumbsDir = $this->baseDir . '/' . $galleryName . '/thumbs';
-            if (!is_dir($thumbsDir)) {
-                mkdir($thumbsDir, 0777, true);  // Créer le dossier thumbs si nécessaire
-            }
-
-            // Créer la vignette de l'image
-            $imageUploader->createThumbnail($targetFile);
-            echo "Vignette créée avec succès.";
-        } else {
-            echo "Erreur lors de l'upload de l'image.";
-        }
-    }
 
     // Supprime une image dans "original" et "thumbs"
     public function deleteImage($galleryName, $imageName)

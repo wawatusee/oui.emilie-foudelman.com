@@ -1,17 +1,18 @@
 {
   "Main_menu": [
     {
-      "page": "prestations",
-      "titre": {
-        "fr": "prestations"
-      }
-    },
-    {
       "page": "galeries",
       "titre": {
         "fr": "galeries"
       }
     },
+    {
+      "page": "prestations",
+      "titre": {
+        "fr": "prestations"
+      }
+    },
+    
     {
       "page": "contact",
       "titre": {
