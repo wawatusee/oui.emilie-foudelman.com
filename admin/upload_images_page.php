@@ -1,6 +1,5 @@
 <?php
 require_once("../config/config.php");
-
 ?>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -8,9 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['galleryName']) && !empty($_POST['galleryName'])) {
         // Récupère et sécurise la valeur
         $galleryName = htmlspecialchars($_POST['galleryName']);
-
-        // Affiche ou utilise le nom de la galerie
-        echo "Nom de la galerie reçu : " . $galleryName;
     } else {
         echo "Aucune galerie sélectionnée.";
     }
@@ -23,22 +19,28 @@ $repgalleries = $repImg . 'galleries/' . $galleryName . '/original';
 <html>
 
 <head>
-    <title>Upload Images</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <title>Gestion des Images de galerie</title>
 </head>
 
 <body>
     <header>
-        <h1>Upload d'images</h1>
+        <h1>Gestion des Images de la galerie: <?= $galleryName ?></h1>
         <p></p>
     </header>
-    <!-- Sélection des fichiers -->
-    <input type="file" id="fileInput" multiple />
-    <button onclick="uploadImages()">Upload</button>
-    <!--Rafraichit les miniatures-->
-    <form action="refresh_gallery_thumbs.php" method="POST">
-        <input type="hidden" name="galleryName" value="<?$galleryName?>">
-        <button type="submit">Rafraîchir les miniatures</button>
-    </form>
+    <main>
+        <section class="form-contener">
+            <!-- Sélection des fichiers à uploader -->
+            <input type="file" id="fileInput" multiple />
+            <button onclick="uploadImages()">Upload</button>
+            <!--Fin de Sélection des fichiers à uploader -->
+        </section>
+        <section class="form-contener">
+            <!-- Rafraîchir les miniatures -->
+            <button id="refreshThumbsBtn">Rafraîchir les miniatures</button>
+            <!--Fin de Rafraîchir les miniatures -->
+        </section>
+    </main>
     <script>
         function uploadImages() {
             const fileInput = document.getElementById('fileInput');
@@ -86,6 +88,31 @@ $repgalleries = $repImg . 'galleries/' . $galleryName . '/original';
                     alert("Error uploading images: " + error);
                 });
         }
+    </script>
+    <script>
+        document.getElementById('refreshThumbsBtn').addEventListener('click', () => {
+            const galleryName = '<?= htmlspecialchars($galleryName, ENT_QUOTES) ?>';
+            fetch('refresh_gallery_thumbs.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        galleryName
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);
+                    } else {
+                        alert("Erreur : " + data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erreur lors de l'appel AJAX : " + error.message);
+                });
+        });
     </script>
 </body>
 
