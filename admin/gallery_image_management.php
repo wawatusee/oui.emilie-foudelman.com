@@ -40,6 +40,12 @@ $repgalleries = $repImg . 'galleries/' . $galleryName . '/original';
             <button id="refreshThumbsBtn">Rafraîchir les miniatures</button>
             <!--Fin de Rafraîchir les miniatures -->
         </section>
+        <!-- Nouvelle section : Mini-galerie -->
+        <section>
+            <h2>Miniatures</h2>
+            <div id="thumbnailsContainer" class="thumbnails-grid"></div>
+        </section>
+
     </main>
     <script>
         function uploadImages() {
@@ -113,6 +119,111 @@ $repgalleries = $repImg . 'galleries/' . $galleryName . '/original';
                     alert("Erreur lors de l'appel AJAX : " + error.message);
                 });
         });
+    </script>
+    <script>
+        // Charger les miniatures
+        function loadThumbnails() {
+            const galleryName = '<?= htmlspecialchars($galleryName, ENT_QUOTES) ?>';
+
+            fetch('load_thumbnails.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        galleryName
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const thumbnailsContainer = document.getElementById('thumbnailsContainer');
+                        thumbnailsContainer.innerHTML = ''; // Clear existing thumbnails
+
+                        data.thumbnails.forEach(thumbnail => {
+                            const thumbnailElement = document.createElement('div');
+                            thumbnailElement.className = 'thumbnail-item';
+
+                            thumbnailElement.innerHTML = `
+                        <img src="${thumbnail.url}" alt="${thumbnail.name}" />
+                        <button onclick="deleteImage('${thumbnail.name}')">Suppr</button>
+                        <button onclick="renameImage('${thumbnail.name}')">Renommer</button>
+                    `;
+
+                            thumbnailsContainer.appendChild(thumbnailElement);
+                        });
+                    } else {
+                        alert("Erreur : " + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error("Erreur lors du chargement des miniatures :", error);
+                    alert("Erreur lors du chargement des miniatures : " + error.message);
+                });
+        }
+
+        // Supprimer une image
+        function deleteImage(imageName) {
+            const galleryName = '<?= htmlspecialchars($galleryName, ENT_QUOTES) ?>';
+            if (confirm(`Supprimer l'image ${imageName} ?`)) {
+                fetch('delete_image.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: new URLSearchParams({
+                            galleryName,
+                            imageName
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert(data.message);
+                            loadThumbnails(); // Recharger la galerie
+                        } else {
+                            alert("Erreur : " + data.error);
+                        }
+                    })
+                    .catch(error => {
+                        alert("Erreur : " + error.message);
+                    });
+            }
+        }
+
+        // Renommer une image
+        function renameImage(oldName) {
+            const newName = prompt("Entrez le nouveau nom pour l'image (sans l'extension) :", oldName.split('.')[0]);
+            if (!newName) return;
+
+            const galleryName = '<?= htmlspecialchars($galleryName, ENT_QUOTES) ?>';
+            fetch('rename_image.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        galleryName,
+                        oldName,
+                        newName
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);
+                        loadThumbnails(); // Recharger la galerie
+                    } else {
+                        alert("Erreur : " + data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erreur : " + error.message);
+                });
+        }
+
+        // Charger les miniatures au démarrage
+        document.addEventListener('DOMContentLoaded', loadThumbnails);
     </script>
 </body>
 
